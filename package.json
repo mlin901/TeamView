@@ -1,0 +1,30 @@
+{
+  "name": "TeamView",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlin901/TeamView.git"
+  },
+  "keywords": [],
+  "author": "mlin901",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mlin901/TeamView/issues"
+  },
+  "homepage": "https://github.com/mlin901/TeamView#readme",
+  "dependencies": {
+    "inquirer": "^8.1.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.1"
+  }
+}
