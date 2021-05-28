@@ -11,15 +11,23 @@ const Intern = require('./lib/Intern');
 
 console.log("This is the **** app./nStart by entering information about the manager of your team.");
 
-let employeeList = []
-let newEmployee = {}
 
 //We start with the manager...
 let employeeType = 'Add manager';
 
+function writeHtml(data) {
+  console.log('In writeHtml');
+  console.log('vvvvvvvvvvvvvvvvvvvvvvvvv');
+  console.log(data);
+}
+
 //Function that prompts for info, saves it, and eventually calls the function that writes to the HTML file
 const askQuestions = () => {
-  console.log(employeeType + '   ssssssssssssss')
+  console.log(employeeType + '   ssssssssssssss')   // **************
+
+  let employeeList = []
+  let newEmployee = {}
+
   inquirer                // ******Add more validation
     .prompt([
       {
@@ -79,7 +87,7 @@ const askQuestions = () => {
       // console.log(data.menu);
       switch(employeeType) {
         case 'Add manager':
-          let newEmployee = new Manager(data.name, data.id, data.email, data.officenum);
+          newEmployee = new Manager(data.name, data.id, data.email, data.officenum);
           employeeType = data.menu;
           // askQuestions();
           break;
@@ -98,7 +106,7 @@ const askQuestions = () => {
           employeeType = false;  // **********
       }
       if (data.menu==='Input complete') {
-        console.log('******should call file write function here');  // ***********
+        writeHtml(newEmployee);
         // If Finished, quit and call function to write info to file
       } else {
         askQuestions();
@@ -110,8 +118,4 @@ const askQuestions = () => {
 
 askQuestions();
 
-// const boss = new Manager('Bob', '001', 'abc@def.ghi', "1");
 
-// console.log('---BOSS---');
-// boss.promptForInfo();
-// console.log('done**********************');
