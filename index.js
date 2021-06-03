@@ -13,14 +13,14 @@ let employeeType = 'Add manager';
 
 //Function that writes to the HTML file
 function writeHtml(data) {
-  fs.appendFile('index.html', data, (err) => {if (err) console.error(err)});
+  fs.appendFile('./dist/index.html', data, (err) => {if (err) console.error(err)});
 }
 
 //Function that prompts for info, saves it, and eventually calls the function that writes to the HTML file
 const askQuestions = () => {
   let newEmployee = {}
   let htmlString = '';
-  // Prompt for questions  
+  // Prompt for team member information  
   inquirer      
     .prompt([
       {
@@ -125,7 +125,7 @@ const askQuestions = () => {
           htmlString =` 
             <div class="col-12 col-sm-6 col-lg-4 mb-3">
               <div class="card">
-                <h3 class="card-header bg-danger">${newEmployee.getName()}</h3>
+                <h3 class="card-header bg-danger text-white">${newEmployee.getName()}</h3>
                 <div class="card-body">
                   <h4 class="card-subtitle mb-2 text-muted">${newEmployee.getRole()}</h4>
                   <p class="card-text" style='line-height: 2;'>  
