@@ -20,15 +20,15 @@ function writeHtml(data) {
 const askQuestions = () => {
   let newEmployee = {}
   let htmlString = '';
-  // Prompt for questions
-  inquirer                // ******Add more validation
+  // Prompt for questions  
+  inquirer      
     .prompt([
       {
         type: 'input',
         message: "Name:",
         name: 'name',
         validate(value) {
-          if (value.length){
+          if (value.length){  // Validate that user entered something in this field
             return true;
           } else {
             console.log(" <- Entry invalid. Please enter name")
@@ -41,8 +41,7 @@ const askQuestions = () => {
         message: 'Employee ID:',
         name: 'id',
         validate(value) {
-          // if (Number.isInteger(value)){
-          if (!isNaN(value)) {
+          if (!isNaN(value)) {   // Validate that input is a number
             return true;
           } else {
             console.log(" <- Entry invalid. Please enter a numeric employee ID")
@@ -55,6 +54,7 @@ const askQuestions = () => {
         message: 'Email:',
         name: 'email',
         validate: function (email) {  // From https://gist.github.com/Amitabh-K/ae073eea3d5207efaddffde19b1618e8
+                                      // Checks for valid email address
           valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
           if (valid) {
               return true;
@@ -69,7 +69,7 @@ const askQuestions = () => {
         message: 'Office number:',
         name: 'officenum',
         when: employeeType==='Add manager',
-        validate(value) {
+        validate(value) {       // Validate that input is a number
           if (!isNaN(value)) {
             return true;
           } else {
@@ -84,7 +84,7 @@ const askQuestions = () => {
         name: 'github',
         when: employeeType==='Add engineer',
         validate(value) {
-          if (value.length){
+          if (value.length){   // Validate that user entered something in this field
             return true;
           } else {
             console.log(" <- Entry invalid. Please enter a GitHub account name")
@@ -98,7 +98,7 @@ const askQuestions = () => {
         name: 'school',
         when: employeeType==='Add intern',
         validate(value) {
-          if (value.length){
+          if (value.length){     // Validate that user entered something in this field
             return true;
           } else {
             console.log(" <- Entry invalid. Please enter a school")
@@ -110,13 +110,14 @@ const askQuestions = () => {
       // to complete input
       {
         type: 'list',
-        message: 'Add another team member?',    // *************
+        message: 'Add another team member?',  
         name: 'menu',
-        choices: ['Add engineer', 'Add intern', 'No - input complete'],  // *********
+        choices: ['Add engineer', 'Add intern', 'No - input complete'],  
       },
     ])
     .then((data) => {
       switch(employeeType) {
+        // This (Add manager) is the case for the first employee the user supplies information for...
         case 'Add manager':
           newEmployee = new Manager(data.name, data.id, data.email, data.officenum);
           employeeType = data.menu;
@@ -124,7 +125,7 @@ const askQuestions = () => {
           htmlString =` 
             <div class="col-12 col-sm-6 col-lg-4 mb-3">
               <div class="card">
-                <h3 class="card-header">${newEmployee.getName()}</h3>
+                <h3 class="card-header bg-danger">${newEmployee.getName()}</h3>
                 <div class="card-body">
                   <h4 class="card-subtitle mb-2 text-muted">${newEmployee.getRole()}</h4>
                   <p class="card-text" style='line-height: 2;'>  
@@ -137,6 +138,7 @@ const askQuestions = () => {
             </div>
             `;
           break;
+        // If the user chose "Add engineer"...
         case 'Add engineer':
           newEmployee = new Engineer(data.name, data.id, data.email, data.github);
           employeeType = data.menu;
@@ -144,7 +146,7 @@ const askQuestions = () => {
           htmlString = 
           `<div class="col-12 col-sm-6 col-lg-4 mb-3">
             <div class="card">
-              <h3 class="card-header">${newEmployee.getName()}</h3>
+              <h3 class="card-header bg-info">${newEmployee.getName()}</h3>
               <div class="card-body">
                 <h4 class="card-subtitle mb-2 text-muted">${newEmployee.getRole()}</h4>
                 <p class="card-text" style='line-height: 2;'>  
@@ -157,6 +159,7 @@ const askQuestions = () => {
           </div>
           `;
           break;
+        // If the user chose "Add intern"...
         case 'Add intern':
           newEmployee = new Intern(data.name, data.id, data.email, data.school);
           employeeType = data.menu;
@@ -164,7 +167,7 @@ const askQuestions = () => {
           htmlString = 
           `<div class="col-12 col-sm-6 col-lg-4 mb-3">
              <div class="card">
-             <h3 class="card-header">${newEmployee.getName()}</h3>
+             <h3 class="card-header bg-warning">${newEmployee.getName()}</h3>
              <div class="card-body">
                  <h4 class="card-subtitle mb-2 text-muted">${newEmployee.getRole()}</h4>
                  <p class="card-text" style='line-height: 2;'>  
@@ -177,9 +180,8 @@ const askQuestions = () => {
            </div>
           `;
           break;
-        // default:
-        //   console.error('HOW DID THIS HAPPEN!!!!'); // *******
       }
+      // if the user's done adding team members, the final bits of HTML are added
       if (data.menu==='No - input complete') {
         htmlString += `
       </section>
@@ -192,14 +194,13 @@ const askQuestions = () => {
 </html>
         `;
         writeHtml(htmlString);
-
-      } else {
+        console.log("Input complete! TeamView has been updated with the new team members.");
+      } else {   // Else, the HTML for the entered team member is added to the file, 
+                 //   and the user is prompted for the next team member
         writeHtml(htmlString);
-        // console.log(`Enter information for the ${}`);
         askQuestions();
       }
     });
-  
 };
 
 askQuestions();
