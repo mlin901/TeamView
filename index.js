@@ -124,13 +124,13 @@ const askQuestions = () => {
           htmlString =` 
             <div class="col-12 col-sm-6 col-lg-4 mb-3">
               <div class="card">
-                <h3 class="card-header">${newEmployee.name}</h3>
+                <h3 class="card-header">${newEmployee.getName()}</h3>
                 <div class="card-body">
                   <h4 class="card-subtitle mb-2 text-muted">${newEmployee.getRole()}</h4>
                   <p class="card-text" style='line-height: 2;'>  
-                    <b>ID:</b> ${newEmployee.id}<br>
-                    <b>Email:</b> <a href="mailto:${newEmployee.email}">${newEmployee.email}</a><br>
-                    <b>Office number:</b> ${newEmployee.officenum}
+                    <b>ID:</b> ${newEmployee.getId()}<br>
+                    <b>Email:</b> <a href="mailto:${newEmployee.getEmail()}">${newEmployee.getEmail()}</a><br>
+                    <b>Office number:</b> ${newEmployee.getOfficeNum()}
                   </p>
                 </div>
               </div>
@@ -144,13 +144,13 @@ const askQuestions = () => {
           htmlString = 
           `<div class="col-12 col-sm-6 col-lg-4 mb-3">
             <div class="card">
-              <h3 class="card-header">${newEmployee.name}</h3>
+              <h3 class="card-header">${newEmployee.getName()}</h3>
               <div class="card-body">
                 <h4 class="card-subtitle mb-2 text-muted">${newEmployee.getRole()}</h4>
                 <p class="card-text" style='line-height: 2;'>  
-                  <b>ID:</b> ${newEmployee.id}<br>
-                  <b>Email:</b> <a href="mailto:${newEmployee.email}">${newEmployee.email}</a><br>
-                  <b>GitHub:</b> <a href="https://www.github.com/${newEmployee.github}">${newEmployee.github}</a>
+                  <b>ID:</b> ${newEmployee.getId()}<br>
+                  <b>Email:</b> <a href="mailto:${newEmployee.getEmail()}">${newEmployee.getEmail()}</a><br>
+                  <b>GitHub:</b> <a href="https://www.github.com/${newEmployee.getGithub()}">${newEmployee.getGithub()}</a>
                 </p>
               </div>
             </div>
@@ -164,13 +164,13 @@ const askQuestions = () => {
           htmlString = 
           `<div class="col-12 col-sm-6 col-lg-4 mb-3">
              <div class="card">
-             <h3 class="card-header">${newEmployee.name}</h3>
+             <h3 class="card-header">${newEmployee.getName()}</h3>
              <div class="card-body">
                  <h4 class="card-subtitle mb-2 text-muted">${newEmployee.getRole()}</h4>
                  <p class="card-text" style='line-height: 2;'>  
-                  <b>ID:</b> ${newEmployee.id}<br>
-                  <b>Email:</b> <a href="mailto:${newEmployee.email}">${newEmployee.email}</a><br>
-                  <b>School:</b> ${newEmployee.school}
+                  <b>ID:</b> ${newEmployee.getId()}<br>
+                  <b>Email:</b> <a href="mailto:${newEmployee.getEmail()}">${newEmployee.getEmail()}</a><br>
+                  <b>School:</b> ${newEmployee.getSchool()}
                  </p>
                </div>
              </div>
@@ -195,6 +195,7 @@ const askQuestions = () => {
 
       } else {
         writeHtml(htmlString);
+        // console.log(`Enter information for the ${}`);
         askQuestions();
       }
     });
