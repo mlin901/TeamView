@@ -25,7 +25,7 @@ const askQuestions = () => {
     .prompt([
       {
         type: 'input',
-        message: "Name:",
+        message: "Name:",  // Prompt for name
         name: 'name',
         validate(value) {
           if (value.length){  // Validate that user entered something in this field
@@ -38,7 +38,7 @@ const askQuestions = () => {
       },
       {
         type: 'input',
-        message: 'Employee ID:',
+        message: 'Employee ID:',  // Prompt for ID
         name: 'id',
         validate(value) {
           if (!isNaN(value)) {   // Validate that input is a number
@@ -51,7 +51,7 @@ const askQuestions = () => {
       },
       {       
         type: 'input',
-        message: 'Email:',
+        message: 'Email:',  // Prompt for email
         name: 'email',
         validate: function (email) {  // From https://gist.github.com/Amitabh-K/ae073eea3d5207efaddffde19b1618e8
                                       // Checks for valid email address
@@ -66,7 +66,7 @@ const askQuestions = () => {
       },
       {
         type: 'input',
-        message: 'Office number:',
+        message: 'Office number:',  // Prompt for office number
         name: 'officenum',
         when: employeeType==='Add manager',
         validate(value) {       // Validate that input is a number
@@ -80,7 +80,7 @@ const askQuestions = () => {
       },
       {
         type: 'input',
-        message: 'GitHub:',
+        message: 'GitHub:',  // Prompt for GitHub account
         name: 'github',
         when: employeeType==='Add engineer',
         validate(value) {
@@ -94,7 +94,7 @@ const askQuestions = () => {
       },
       {
         type: 'input',
-        message: 'School:',
+        message: 'School:',  // Prompt for school
         name: 'school',
         when: employeeType==='Add intern',
         validate(value) {
