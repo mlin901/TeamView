@@ -1,7 +1,7 @@
 const Engineer = require("../lib/Engineer");
 
 describe("Engineer", () => {
-  describe("Initialization", () => {
+  describe("Initialization and properties", () => {
     it("should return an object containing properties (name, id, email, github), as well as methods (getName, getId, getEmail, getRole, and getGithub, which are tested below) when called with the 'new' keyword", () => {
       const obj = new Engineer("Fred", "123", "Fred@123.com", "FredGitHubAccount");
       expect("name" in obj).toEqual(true);  

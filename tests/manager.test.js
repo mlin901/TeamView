@@ -1,7 +1,7 @@
 const Manager = require("../lib/Manager");
 
 describe("Manager", () => {
-  describe("Initialization", () => {
+  describe("Initialization and properties", () => {
     it("should return an object containing properties (name, id, email, officeNum), as well as methods (getName, getId, getEmail, getRole, and getOfficeNum, which are tested below) when called with the 'new' keyword", () => {
       const obj = new Manager("Fred", "123", "Fred@123.com", "12");
       expect("name" in obj).toEqual(true);  

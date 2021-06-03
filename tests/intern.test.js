@@ -1,7 +1,7 @@
 const Intern = require("../lib/Intern");
 
 describe("Intern", () => {
-  describe("Initialization", () => {
+  describe("Initialization and properties", () => {
     it("should return an object containing properties (name, id, email, school), as well as methods (getName, getId, getEmail, getRole, and getSchool, which are tested below) when called with the 'new' keyword", () => {
       const obj = new Intern("Fred", "123", "Fred@123.com", "UC Davis");
       expect("name" in obj).toEqual(true);  
