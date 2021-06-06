@@ -11,6 +11,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Contributing](#contributing)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tests](#tests)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Questions](#questions)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Screenshot](#screenshot)<br/>
 
 ## Description
 
@@ -95,3 +96,6 @@ To test, use the following command:
 ## Questions
 Send questions to mjlinder218@gmail.com. 
 For more information about the developer, see https://github.com/mlin901.
+
+## Screenshot
+![TeamView application screen capture](./resources/TeamViewScreenshot.jpg)
