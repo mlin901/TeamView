@@ -10,7 +10,7 @@ describe("Employee", () => {
     });
   });
 
-  //Test for getName()
+  //Unit test for getName()
   describe("getName", () => {
     it("should return 'Fred' as the name", () => {
       const returnedName = new Employee("Fred", "123", "Fred@123.com").getName();
@@ -18,7 +18,7 @@ describe("Employee", () => {
     });
   });
 
-  //Test for getId()
+  //Unit test for getId()
   describe("getId", () => {
     it("should return '123' as the ID", () => {
       const returnedId = new Employee("Fred", "123", "Fred@123.com").getId();
@@ -26,7 +26,7 @@ describe("Employee", () => {
     });
   });
 
-  //Test for getEmail()
+  //Unit test for getEmail()
   describe("getEmail", () => {
     it("should return 'Fred@123.com' as the email address", () => {
       const returnedEmail = new Employee("Fred", "123", "Fred@123.com").getEmail();
@@ -34,7 +34,7 @@ describe("Employee", () => {
     });
   });
 
-  //Test for getRole()
+  //Unit test for getRole()
   describe("getRole", () => {
     it("should return 'Employee' as the role", () => {
       const returnedRole = new Employee("Fred", "123", "Fred@123.com").getRole();

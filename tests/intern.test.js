@@ -11,7 +11,7 @@ describe("Intern", () => {
     });
   });
 
-  //Test for getName()
+  //Unit test for getName()
   describe("getName", () => {
     it("should return 'Fred' as the name", () => {
       const returnedName = new Intern("Fred", "123", "Fred@123.com", "UC Davis").getName();
@@ -19,7 +19,7 @@ describe("Intern", () => {
     });
   });
 
-  //Test for getId()
+  //Unit test for getId()
   describe("getId", () => {
     it("should return '123' as the ID", () => {
       const returnedId = new Intern("Fred", "123", "Fred@123.com", "UC Davis").getId();
@@ -27,7 +27,7 @@ describe("Intern", () => {
     });
   });
 
-  //Test for getEmail()
+  //Unit test for getEmail()
   describe("getEmail", () => {
     it("should return 'Fred@123.com' as the email address", () => {
       const returnedEmail = new Intern("Fred", "123", "Fred@123.com", "UC Davis").getEmail();
@@ -35,7 +35,7 @@ describe("Intern", () => {
     });
   });
 
-  //Test for getSchool()
+  //Unit test for getSchool()
   describe("getOfficeNum", () => {
     it("should return 'Davis' as the Intern's school", () => {
       const returnedOfficeNum = new Intern("Fred", "123", "Fred@123.com", "UC Davis").getSchool();
@@ -43,7 +43,7 @@ describe("Intern", () => {
     });
   });
 
-  //Test for getRole()
+  //Unit test for getRole()
   describe("getRole", () => {
     it("should return 'Intern' as the role", () => {
       const returnedRole = new Intern("Fred", "123", "Fred@123.com", "UC Davis").getRole();
