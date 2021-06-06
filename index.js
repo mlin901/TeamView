@@ -117,7 +117,7 @@ const askQuestions = () => {
     ])
     .then((data) => {
       switch(employeeType) {
-        // This (Add manager) is the case for the first employee the user supplies information for...
+        // Case 'Add manager' is the case for the first employee the user supplies information for...
         case 'Add manager':
           newEmployee = new Manager(data.name, data.id, data.email, data.officenum);
           employeeType = data.menu;
